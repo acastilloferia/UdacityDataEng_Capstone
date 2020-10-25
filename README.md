@@ -26,7 +26,15 @@ df_spark =spark.read.format('com.github.saurfang.sas.spark').load('../../data/18
 ```
 Once read I have stored it in a parquet file *sas_data* available in *OUTPUT_FOLDER*. All data wrangling has been done over parquet file in order to 
 improve performance. Steps followed are:
-*
+* Cast as integers: *cicid*, *i94yr*, *i94mon*, *i94cit*, *i94res*
+* Use Python dictionary to create a *descI94cit* field based on *i94cit* (use of udf function)
+* Use Python dictionary to create a *newI94port* field based on *i94port* (use of udf function)
+* Use Python dictionary to create a *descrI94mode* field based on *i94mode* (use of udf function)
+* Use Python dictionary to create a *descrI94addr* field based on *i94addr* (use of udf function)
+* Update *i94addr* as '99' when 'All Other Codes' (use of udf function)
+* Create an standard date for SAS *arrdate* as *stdArrdate* (use of udf function)
+* Create an standard date for SAS *depdate* as *stdDepdate* (use of udf function)
+* Save to parquet (append mode) to outdata_path+"immigrations/immigrations.parquet" partitioned by State / Year and Month.
 
 ### City temperatures
 ### I94_SAS_Labels_Descriptions.SAS and 
