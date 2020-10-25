@@ -5,7 +5,7 @@ File Name | Description
 ------------ | -------------
 immigration_data_sample.csv | Reduce set for initial exploration of immigration data
 I94_SAS_Labels_Descriptions | SAS format dictionary with valid values for Immigrations File
-SAS_Valid_Values.pys | PYTHON format dictionary created from SAS information
+SAS_Valid_Values.py | PYTHON format dictionary created from SAS information
 airport_codes_csv.csv | Complete informations regarding Wordwide airports
 us-cities-demographics.csv | Complete informations regarding US Cities and its population
 * File 1
@@ -37,7 +37,7 @@ improve performance. Steps followed are:
 * Save to parquet (append mode) to outdata_path+"immigrations/immigrations.parquet" partitioned by State / Year and Month.
 
 ### City temperatures
-### I94_SAS_Labels_Descriptions.SAS and 
+### I94_SAS_Labels_Descriptions.SAS and SAS_Valid_Values.py
 This file has been used to properly understand the contents of Immigration file. It is written in RAW text 
 and prepared to be processed under SAS ecosystem. I have edited the file to generate an standard .py importable
 source (*SAS_Valid_Values.py*)
