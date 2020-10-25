@@ -3,6 +3,7 @@ Udacity Capstone Project for Data Engineer Nanodegree
 I have decided to explore Udacity given Data Sets:
 File Name | Description
 ------------ | -------------
+immigration_data_sample.csv | Reduce set for initial exploration of immigration data
 I94_SAS_Labels_Descriptions | SAS format dictionary with valid values for Immigrations File
 SAS_Valid_Values.pys | PYTHON format dictionary created from SAS information
 airport_codes_csv.csv | Complete informations regarding Wordwide airports
@@ -11,6 +12,23 @@ us-cities-demographics.csv | Complete informations regarding US Cities and its p
 * File 2
 * airport_codes_csv.csv
 * Filee 4
+
+### Immigration Data
+This is the main dataset provided for this project. There is a sample file *immigration_data_sample.csv* and a complete
+set (year 2016) in SAS format in the workspace path *../../*.
+I have used SAS library to import 1 month SAS file (i94_apr16_sub.sas7bdat)
+```
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.\
+config("spark.jars.packages","saurfang:spark-sas7bdat:2.0.0-s_2.11")\
+.enableHiveSupport().getOrCreate()
+df_spark =spark.read.format('com.github.saurfang.sas.spark').load('../../data/18-83510-I94-Data-2016/i94_apr16_sub.sas7bdat')
+```
+Once read I have stored it in a parquet file *sas_data* available in *OUTPUT_FOLDER*. All data wrangling has been done over parquet file in order to 
+improve performance. Steps followed are:
+*
+
+### City temperatures
 ### I94_SAS_Labels_Descriptions.SAS and 
 This file has been used to properly understand the contents of Immigration file. It is written in RAW text 
 and prepared to be processed under SAS ecosystem. I have edited the file to generate an standard .py importable
