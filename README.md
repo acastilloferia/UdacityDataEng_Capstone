@@ -32,5 +32,5 @@ I have inspected this file using Pandas Dataframe. I have perfomed the following
 * Create an unique *city_code* with city_state_code.
 * Standarize column name (replace *space* with *underscore* and use lowercase)
 * Create a new dataframe *population* from *Race*, *Count*, and *city_code* columns
-* Save cities dataframeto parquet (overwrite mode) to outdata_path+"cities/cities.parquet" (remove *Race*, *Count* and duplicates before)
-* Save population dataframeto parquet (overwrite mode) to outdata_path+"population/population.parquet"
+* Save cities dataframe to parquet (overwrite mode) to outdata_path+"cities/cities.parquet" (remove *Race*, *Count* and duplicates before)
+* Save population dataframe to parquet (overwrite mode) to outdata_path+"population/population.parquet"
