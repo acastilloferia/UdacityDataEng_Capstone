@@ -29,23 +29,24 @@
 ### Cities Dictionary
 |Field|Description|
 |---|---|
-|City|Unique Identifier|
-|State|Unique Identifier|
-|median_age|Unique Identifier|
-|male_population|Unique Identifier|
-|female_population|Unique Identifier|
-|total_population|Unique Identifier|
-|number_of_veterans|Unique Identifier|
-|foreign_born|Unique Identifier|
-|average_household_size|Unique Identifier|
-|state_code|Unique Identifier|
-|city_code|Unique Identifier|
+|City|Name of the city|
+|State|State Name of the city|
+|median_age|Median Age in the city|
+|male_population|Number of male citizens|
+|female_population|Number of female citizens|
+|total_population|Total population as male + female|
+|number_of_veterans|Number of veterans in the city|
+|foreign_born|Number of foreigners in the city|
+|average_household_size|Average Hosehold Size in the city|
+|state_code|State Code within US|
+|city_code|Unique Identifier for the city (name_state)|
 
 ### Population Dictionary
 |Field|Description|
 |---|---|
-|city_code|Unique Identifier|
-|race|Unique Identifier|
-|count|Unique Identifier|
+|city_code|Unique Identifier for the city (name_state)|
+|race|Race description from list ['Hispanic or Latino', 'White', 'Asian', 'Black or African-American',
+       'American Indian and Alaska Native']|
+|count|Number of people per race per city|
 
 
