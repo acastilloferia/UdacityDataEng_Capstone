@@ -8,7 +8,7 @@ File Name | Description | Go to File
 [airport_codes_csv.csv](/README.md#airport-codes-file) | Complete informations regarding Wordwide airports | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/airport-codes_csv.csv)
 [us-cities-demographics.csv](/README.md#US-cities-demographics-file) | Complete informations regarding US Cities and its population | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/us-cities-demographics.csv)
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
-[city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available]
+[city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
 
 ### Immigration Data
 This is the main dataset provided for this project. There is a sample file *immigration_data_sample.csv* and a complete
