@@ -45,8 +45,7 @@
 |Field|Description|
 |---|---|
 |city_code|Unique Identifier for the city (name_state)|
-|race|Race description from list ['Hispanic or Latino', 'White', 'Asian', 'Black or African-American',
-       'American Indian and Alaska Native']|
+|race|Race description from list ['Hispanic or Latino', 'White', 'Asian', 'Black or African-American','American Indian and Alaska Native']|
 |count|Number of people per race per city|
 
 
