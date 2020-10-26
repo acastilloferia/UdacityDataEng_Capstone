@@ -48,16 +48,16 @@ Afterwards, I have moved the dataset to Spark Dataframe, performing following ac
 * Drop State and City information
 * Save to parquet (append mode) to outdata_path+"temperatures/temperatures.parquet" partitioned by StateCode, Year and Month
 Following steps exposes data wrangling applied to this dataset:
-* Initial review ``` df_air.info() ```
+* Initial review ``` df3.info() ```
 
 ![Initial Info_Temperatures](/images/img_temp_ini.png)
-* Initial information schema ``` df_air.head() ```
+* Initial information schema ``` df3.head() ```
 
 ![Initial Schema Temperatures](/images/img_temp_ini_cols.png)
-* Final review ``` df_air.info() ```
+* Final review ``` df3_spark.describe().show() ```
 
 ![Final Info_Temperatures](/images/img_temp_end.png)
-* Final information schema ``` df_air.head() ```
+* Final information schema ``` df3_spark.show(5) ```
 
 ![Final Schema Temperatures](/images/img_temp_end_cols.png)
 
