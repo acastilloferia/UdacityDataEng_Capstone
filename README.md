@@ -38,6 +38,31 @@ improve performance. Steps followed are:
 
 ### City temperatures
 Dataset provided by Udacity handled data up to 2013. Considering that immigration Dataset is focused on 2016, I have browsed for an alternative third party dataset with similar information updated, at least, till 2016. Followin url gives access to this dataset, also available in ZIP format in INPUT_DATA folder (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)
+I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
+* Filter only *US* data by field Country  
+* Remove Region and Country fields (no longer needed)
+* Remove duplicates
+Afterwards, I have moved the dataset to Spark Dataframe, performing following actions:
+* Define State Code based on State Name vs SAS_Valid_Values.py information.
+* Create an unique *cityCode* with City_StateCode information.
+* Drop State and City information
+* Save to parquet (append mode) to outdata_path+"temperatures/temperatures.parquet" partitioned by StateCode, Year and Month
+Following steps exposes data wrangling applied to this dataset:
+* Initial review ``` df_air.info() ```
+
+![Initial Info_Temperatures](/images/img_temp_ini.png)
+* Initial information schema ``` df_air.head() ```
+
+![Initial Schema Temperatures](/images/img_temp_ini_cols.png)
+* Final review ``` df_air.info() ```
+
+![Final Info_Temperatures](/images/img_temp_end.png)
+* Final information schema ``` df_air.head() ```
+
+![Final Schema Temperatures](/images/img_temp_end_cols.png)
+
+[Field details for Temperatures described in Dictionary](/DICTIONARY/Data_Dictionary.md#temperatures-dictionary)
+
 ### I94_SAS_Labels_Descriptions.SAS and SAS_Valid_Values.py
 This file has been used to properly understand the contents of Immigration file. It is written in RAW text 
 and prepared to be processed under SAS ecosystem. I have edited the file to generate an standard .py importable
