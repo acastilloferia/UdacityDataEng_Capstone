@@ -118,7 +118,7 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Info_Cities](/images/img_cit_end.png)
 * Final information schema Cities``` df_city.head() ```
 
-![Final Schema Cities](/images/img_air_cit_cols.png)
+![Final Schema Cities](/images/img_cit_cols.png)
 * Final review Population ``` df_population.info() ```
 
 ![Final Info_Population](/images/img_pop_end.png)
@@ -127,4 +127,5 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Schema Population](/images/img_pop_end_cols.png)
 
 [Field details for Cities described in Dictionary](/DICTIONARY/Data_Dictionary.md#cities-dictionary)
+
 [Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
