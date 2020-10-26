@@ -37,6 +37,7 @@ improve performance. Steps followed are:
 * Save to parquet (append mode) to outdata_path+"immigrations/immigrations.parquet" partitioned by State / Year and Month.
 
 ### City temperatures
+Dataset provided by Udacity handled data up to 2013. Considering that immigration Dataset is focused on 2016, I have browsed for an alternative third party dataset with similar information updated, at least, till 2016. Followin url gives access to this dataset, also available in ZIP format in INPUT_DATA folder (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)
 ### I94_SAS_Labels_Descriptions.SAS and SAS_Valid_Values.py
 This file has been used to properly understand the contents of Immigration file. It is written in RAW text 
 and prepared to be processed under SAS ecosystem. I have edited the file to generate an standard .py importable
