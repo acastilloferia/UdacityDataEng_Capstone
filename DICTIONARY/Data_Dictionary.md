@@ -44,4 +44,8 @@
 ### Population Dictionary
 |Field|Description|
 |---|---|
-|ident|Unique Identifier|
+|city_code|Unique Identifier|
+|race|Unique Identifier|
+|count|Unique Identifier|
+
+
