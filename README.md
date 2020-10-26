@@ -4,11 +4,11 @@ I have decided to explore Udacity given Data Sets:
 File Name | Description | Go to File
 ------------ | ------------- | -------------
 [immigration_data_sample.csv](/README.md#immigration-data) | Reduce set for initial exploration of immigration data | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/tree/main/INPUT_DATA/sas_data)
-[I94_SAS_Labels_Descriptions](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | SAS format dictionary with valid values for Immigrations File | Dataset available
-[airport_codes_csv.csv](/README.md#airport-codes-file) | Complete informations regarding Wordwide airports | Dataset available
-[us-cities-demographics.csv](/README.md#US-cities-demographics-file) | Complete informations regarding US Cities and its population | Dataset available
-[SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | Dataset available
-[city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | Dataset available
+[I94_SAS_Labels_Descriptions](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | SAS format dictionary with valid values for Immigrations File | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/I94_SAS_Labels_Descriptions.SAS)
+[airport_codes_csv.csv](/README.md#airport-codes-file) | Complete informations regarding Wordwide airports | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/airport-codes_csv.csv)
+[us-cities-demographics.csv](/README.md#US-cities-demographics-file) | Complete informations regarding US Cities and its population | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/us-cities-demographics.csv)
+[SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
+[city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available]
 
 ### Immigration Data
 This is the main dataset provided for this project. There is a sample file *immigration_data_sample.csv* and a complete
