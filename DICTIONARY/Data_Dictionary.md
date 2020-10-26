@@ -7,6 +7,7 @@
 |Airports Dictionary|List of fields stored in parquet file with Airports information|
 |Cities Dictionary|List of fields stored in parquet file with cities information|
 |Population Dictionary|List of fields stored in parquet file with population linked cities information|
+|Temperatures Dictionary|List of fields stored in parquet file with temperatures linked cities information|
 
 ### Airports Dictionary
 |Field|Description|
@@ -48,4 +49,14 @@
 |race|Race description from list ['Hispanic or Latino', 'White', 'Asian', 'Black or African-American','American Indian and Alaska Native']|
 |count|Number of people per race per city|
 
+### Temperatures Dictionary
+|Field|Description|
+|---|---|
+|Month|Month of the observation used for partitioning|
+|Day|Day of the observation used for future partitioning|
+|Year|Year of the observation used for partitioning|
+|AvgTemperature|Average Temperature in the city for the given date|
+|stateCode|State Code for the given city used for partitioning|
+|cityCode|City_stateCode unique identifier for the city|
+|temperatureDate|Date of the observation|
 
