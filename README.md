@@ -32,7 +32,21 @@ improve performance. Steps followed are:
 * Create an standard date for SAS *arrdate* as *stdArrdate* (use of udf function)
 * Create an standard date for SAS *depdate* as *stdDepdate* (use of udf function)
 * Save to parquet (append mode) to outdata_path+"immigrations/immigrations.parquet" partitioned by State / Year and Month.
+Following steps exposes data wrangling applied to this dataset:
+* Initial review ``` df2.describe().show() ```
 
+![Initial Info_Immigration](/images/img_immi_ini.png)
+* Initial information schema ``` df2.show(5) ```
+
+![Initial Schema Immigration](/images/img_air_immi_cols.png)
+* Final review ``` df2.describe().show() ```
+
+![Final Info_Immigration](/images/img_immi_end.png)
+* Final information schema ``` df2.show(5) ```
+
+![Final Schema Immigration](/images/img_immi_end_cols.png)
+
+[Field details for Immigration described in Dictionary](/DICTIONARY/Data_Dictionary.md#immigration-dictionary)
 ### City temperatures
 Dataset provided by Udacity handled data up to 2013. Considering that immigration Dataset is focused on 2016, I have browsed for an alternative third party dataset with similar information updated, at least, till 2016. Followin url gives access to this dataset, also available in ZIP format in INPUT_DATA folder (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
