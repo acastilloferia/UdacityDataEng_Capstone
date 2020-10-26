@@ -85,14 +85,14 @@ Following steps exposes data wrangling applied to this dataset:
 * Initial information schema ``` df_air.head() ```
 
 ![Initial Schema Airports](/images/img_air_ini_cols.png)
-* Initial review ``` df_air.info() ```
+* Final review ``` df_air.info() ```
 
 ![Final Info_Airports](/images/img_air_end.png)
-* Initial information schema ``` df_air.head() ```
+* Final information schema ``` df_air.head() ```
 
 ![Final Schema Airports](/images/img_air_end_cols.png)
 
-[Field details described in Dictionary](/DICTIONARY/Data_Dictionary.md#airports-dictionary)
+[Field details for Airports described in Dictionary](/DICTIONARY/Data_Dictionary.md#airports-dictionary)
 
 ### us-cities-demographics.csv
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
@@ -106,3 +106,25 @@ I have inspected this file using Pandas Dataframe. I have perfomed the following
 * Create a new dataframe *population* from *Race*, *Count*, and *city_code* columns
 * Save cities dataframe to parquet (overwrite mode) to outdata_path+"cities/cities.parquet" (remove *Race*, *Count* and duplicates before)
 * Save population dataframe to parquet (overwrite mode) to outdata_path+"population/population.parquet"
+Following steps exposes data wrangling applied to this dataset:
+* Initial review ``` df.info() ```
+
+![Initial Info_Cities](/images/img_citraw_ini.png)
+* Initial information schema ``` df.head() ```
+
+![Initial Schema Cities](/images/img_citraw_ini_cols.png)
+* Final review Cities ``` df_city.info() ```
+
+![Final Info_Cities](/images/img_cit_end.png)
+* Final information schema Cities``` df_city.head() ```
+
+![Final Schema Cities](/images/img_air_cit_cols.png)
+* Final review Population ``` df_population.info() ```
+
+![Final Info_Population](/images/img_pop_end.png)
+* Final information schema Population``` df_population.head() ```
+
+![Final Schema Population](/images/img_pop_end_cols.png)
+
+[Field details for Cities described in Dictionary](/DICTIONARY/Data_Dictionary.md#cities-dictionary)
+[Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
