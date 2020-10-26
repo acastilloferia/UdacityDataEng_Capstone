@@ -4,10 +4,16 @@
 
 |aaaaa|bbbbb|
 |---|---|
+|Immigration Dictionary|List of fields stored in parquet file with Immigration information|
 |Airports Dictionary|List of fields stored in parquet file with Airports information|
 |Cities Dictionary|List of fields stored in parquet file with cities information|
 |Population Dictionary|List of fields stored in parquet file with population linked cities information|
 |Temperatures Dictionary|List of fields stored in parquet file with temperatures linked cities information|
+
+### Immigration Dictionary
+|Field|Description|
+|---|---|
+|ident|Unique Identifier|
 
 ### Airports Dictionary
 |Field|Description|
