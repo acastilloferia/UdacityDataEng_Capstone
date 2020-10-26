@@ -118,7 +118,7 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Info_Cities](/images/img_cit_end.png)
 * Final information schema Cities``` df_city.head() ```
 
-![Final Schema Cities](/images/img_cit_cols.png)
+![Final Schema Cities](/images/img_cit_end_cols.png)
 * Final review Population ``` df_population.info() ```
 
 ![Final Info_Population](/images/img_pop_end.png)
