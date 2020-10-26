@@ -4,8 +4,9 @@
 
 |aaaaa|bbbbb|
 |---|---|
-|Airports Dictionary| List of fields stored in parquet file with Airports information|
-|aaaa1 | bbbb1|
+|Airports Dictionary|List of fields stored in parquet file with Airports information|
+|Cities Dictionary|List of fields stored in parquet file with cities information|
+|Population Dictionary|List of fields stored in parquet file with population linked cities information|
 
 ### Airports Dictionary
 |Field|Description|
@@ -24,3 +25,13 @@
 |longitude|Calculated field from numerical coordinates|
 |state_code|Extracted information from iso_country|
 |city_code|Unique identifier for the city (name_state)|
+
+### Cities Dictionary
+|Field|Description|
+|---|---|
+|ident|Unique Identifier|
+
+### Population Dictionary
+|Field|Description|
+|---|---|
+|ident|Unique Identifier|
