@@ -4,10 +4,10 @@ I have decided to explore Udacity given Data Sets:
 File Name | Description
 ------------ | -------------
 [immigration_data_sample.csv](/README.md#immigration-data)| Reduce set for initial exploration of immigration data
-[I94_SAS_Labels_Descriptions](/README.md#immigration-data)| SAS format dictionary with valid values for Immigrations File
-[airport_codes_csv.csv](/README.md#immigration-data)| Complete informations regarding Wordwide airports
-[us-cities-demographics.csv](/README.md#immigration-data)| Complete informations regarding US Cities and its population
-[SAS_Valid_Values.py](/README.md#immigration-data)| PYTHON format dictionary created from SAS information (added)
+[I94_SAS_Labels_Descriptions](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy)| SAS format dictionary with valid values for Immigrations File
+[airport_codes_csv.csv](/README.md#airport-codes-file)| Complete informations regarding Wordwide airports
+[us-cities-demographics.csv](/README.md#US-cities-demographics-file)| Complete informations regarding US Cities and its population
+[SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy)| PYTHON format dictionary created from SAS information (added)
 [city_temperature.zip](/README.md#city-temperatures)| Dataset in CSV with Temperatures by city imported from external source (added)
 
 ### Immigration Data
@@ -117,7 +117,7 @@ Following steps exposes data wrangling applied to this dataset:
 
 [Field details for Airports described in Dictionary](/DICTIONARY/Data_Dictionary.md#airports-dictionary)
 
-### us-cities-demographics.csv
+### US Cities Demographics File
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
 * Infer na at *Average Household Size* with average.
 * Infer na at *Number of Veterans* with average fitted to population case.
