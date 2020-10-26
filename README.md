@@ -80,12 +80,16 @@ I have inspected this file using Pandas Dataframe. I have perfomed the following
 * Save to parquet (overwrite mode) to outdata_path+"airports/airports.parquet"
 Following steps exposes data wrangling applied to this dataset:
 * Initial review ``` df_air.info() ```
+
 ![Initial Info_Airports](/images/img_air_ini.png)
 * Initial information schema ``` df_air.head() ```
+
 ![Initial Schema Airports](/images/img_air_ini_cols.png)
 * Initial review ``` df_air.info() ```
+
 ![Final Info_Airports](/images/img_air_end.png)
 * Initial information schema ``` df_air.head() ```
+
 ![Final Schema Airports](/images/img_air_end_cols.png)
 
 
