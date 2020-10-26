@@ -38,7 +38,7 @@ Following steps exposes data wrangling applied to this dataset:
 ![Initial Info_Immigration](/images/img_immi_ini.png)
 * Initial information schema ``` df2.show(5) ```
 
-![Initial Schema Immigration](/images/img_immi_cols.png)
+![Initial Schema Immigration](/images/img_immi_ini_cols.png)
 * Final review ``` df2.describe().show() ```
 
 ![Final Info_Immigration](/images/img_immi_end.png)
