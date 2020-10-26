@@ -92,6 +92,7 @@ Following steps exposes data wrangling applied to this dataset:
 
 ![Final Schema Airports](/images/img_air_end_cols.png)
 
+[Field details described in Dictionary](#installation-guide)
 
 ### us-cities-demographics.csv
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
