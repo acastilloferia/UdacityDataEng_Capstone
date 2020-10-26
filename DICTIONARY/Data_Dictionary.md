@@ -29,7 +29,17 @@
 ### Cities Dictionary
 |Field|Description|
 |---|---|
-|ident|Unique Identifier|
+|City|Unique Identifier|
+|State|Unique Identifier|
+|median_age|Unique Identifier|
+|male_population|Unique Identifier|
+|female_population|Unique Identifier|
+|total_population|Unique Identifier|
+|number_of_veterans|Unique Identifier|
+|foreign_born|Unique Identifier|
+|average_household_size|Unique Identifier|
+|state_code|Unique Identifier|
+|city_code|Unique Identifier|
 
 ### Population Dictionary
 |Field|Description|
