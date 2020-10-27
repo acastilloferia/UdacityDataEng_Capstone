@@ -1,31 +1,24 @@
 # UdacityDataEng_Capstone
 
-This project has been built based on the provided dataset from Udacity. This dataset is focused in a SAS Format Immigration records from 2016 issued monthly. Some other datasets (csv format) are also provided:
--	Airports
+<p>This project has been built based on the provided dataset from Udacity. This dataset is focused in a SAS Format Immigration records from 2016 issued monthly. Some other datasets (csv format) are also provided:</p>
+- Airports
 -	Cities
 -	Temperatures
-
-After first Data assessment, I have browsed (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) for an alternate temperature’s dataset, as far as the provided one has only record up to 2013. In order to assess and manage the data from the dataset I have used Pandas for small ones (Airports and Cities) and PySpark for the big ones (Immigrations and Temperatures).
-
-In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.
-
-As a part of the assessment I have run two data quality steps:
+<p>After first Data assessment, I have browsed (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) for an alternate temperature’s dataset, as far as the provided one has only record up to 2013. In order to assess and manage the data from the dataset I have used Pandas for small ones (Airports and Cities) and PySpark for the big ones (Immigrations and Temperatures).</p>
+<p>In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.</p>
+<p>As a part of the assessment I have run two data quality steps:</p>
 -	Top 10 Immigration registration Airports not linked
 -	Top 10 Temperatures not linked with registered cities
-
-A first Data Model approach aimed to build an Star based desing as follows:
+<p>A first Data Model approach aimed to build an Star based desing as follows:</p>
 -	Immigration Records (Fact Table)
 -	Airports (Dim Table)
 -	Cities (Dim Table)
 -	Population (Dim Table derived from cities dataset)
 -	Temperatures (Dim Table)
 -	Dates (Dim Table derived from dates used by Immigration Records)
-
-A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, **StateCode** will be used also to partition large parquet files.
-
-With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).
-
-At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:
+<p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, **StateCode** will be used also to partition large parquet files.</p>
+<p>With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).</p>
+<p>At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:<p>
 -	Direct translation from Python ETL to DAG jobs.
 -	Ability to work with huge volumes of raw information.
 -	Ability to define a “lazy” (not fully normalized) star data model that allow users to quickly work with an analytical model.
@@ -35,26 +28,23 @@ At this stage I think that final analytical usage (100% defined) cannot be prope
 
 ---
 
-There will be major change upon analysing the new scenario:
+<p>There will be major change upon analysing the new scenario:</p>
 -	The data was increased by 100x.
 -	The pipelines would be run daily by 7 am every day.
 -	The database needed to be accessed by 100+ people.
-
-Spark is easily expandable to assume a data volume 100 times bigger, as far as process is based on distributed storage. We will need to increase number nodes (per configuration). All other Spark operations will remain immutable.
-
-In order to face daily processing, a new component should be considered: Airflow. That can trigger the existing process with the required setting. We can hook Airflow to existing EMR ETL. As an improvement, we can delegate Data Quality to Airflow, considering that this component can report/trace/log better the results.
-
-Regarding the last requirement (+100 people) with simultaneous access, I would plan Redshift Database. Once Spark ETL is completed, Airflow can stage a consolidated information (from parquet processed files in Spark) and load Dim + Fact tables in Redshift.
+<p>Spark is easily expandable to assume a data volume 100 times bigger, as far as process is based on distributed storage. We will need to increase number nodes (per configuration). All other Spark operations will remain immutable.</p>
+<p>In order to face daily processing, a new component should be considered: Airflow. That can trigger the existing process with the required setting. We can hook Airflow to existing EMR ETL. As an improvement, we can delegate Data Quality to Airflow, considering that this component can report/trace/log better the results.</p>
+<p>Regarding the last requirement (+100 people) with simultaneous access, I would plan Redshift Database. Once Spark ETL is completed, Airflow can stage a consolidated information (from parquet processed files in Spark) and load Dim + Fact tables in Redshift.</p>
 
 ![Enhanced Architecture Based on Airflow](/images/img_airflow_scenario.png)
 
 ---
 
-The project has two deliveries:
+<p>The project has two deliveries:</p>
 -	Data_Wrangling_Notebook.
 -	ETL Pyhon Script (derived from Notebook).
 
-The steps followed in the code are:
+<p>The steps followed in the code are:</p>
 -	Process Airport DataSet and Store in Parquet
 -	Process Airport DataSet and Store in Parquet
 -	Process Airport DataSet and Store in Parquet
@@ -62,6 +52,10 @@ The steps followed in the code are:
 -	Create Date Auxiliar dataset derived from and Store in Parquet
 -	Perform DataQuality #1 and print results.
 -	Perform DataQuality #2 and print results.
+
+---
+
+<p>Following tables summarizes all DataSet processing steps as well as Data Quality Checks</p>
 
 File Name | Description | Go to File
 ------------ | ------------- | -------------
