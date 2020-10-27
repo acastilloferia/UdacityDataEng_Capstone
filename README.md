@@ -51,13 +51,17 @@
 -	ETL Pyhon Script (derived from Notebook).
 
 <p>The steps followed in the code are:</p>
--	Process Airport DataSet and Store in Parquet
--	Process Airport DataSet and Store in Parquet
--	Process Airport DataSet and Store in Parquet
--	Process Airport DataSet and Store in Parquet
--	Create Date Auxiliar dataset derived from and Store in Parquet
--	Perform DataQuality #1 and print results.
--	Perform DataQuality #2 and print results.
+
+<ol>
+<li>	Import libraries, initialize Spark Session and Output destination </li>
+<li>	Process Temperatures DataSet and Store in Parquet </li>
+<li>	Process Cities DataSet and Store in Parquet (2 datasets generated) </li>
+<li>	Process Airport DataSet and Store in Parquet </li>
+<li>	Process Immigration DataSet and Store in Parquet </li>
+<li>	Creaate *Dateevents* Dataset from Immigration's dates and Store in Parquet </li>
+<li>	Perform DataQuality #1 and print results </li>
+<li>	Perform DataQuality #2 and print results </li>
+</ol>
 
 ---
 
