@@ -31,6 +31,8 @@ At this stage I think that final analytical usage (100% defined) cannot be prope
 -	Ability to define a “lazy” (not fully normalized) star data model that allow users to quickly work with an analytical model.
 -	No information is discarded. That will allow our data model to be enriched with external sources.
 
+![Initial Architecture Based on Spark](/images/img_spark_scenario.png)
+
 ---
 
 There will be major change upon analysing the new scenario:
@@ -43,6 +45,8 @@ Spark is easily expandable to assume a data volume 100 times bigger, as far as p
 In order to face daily processing, a new component should be considered: Airflow. That can trigger the existing process with the required setting. We can hook Airflow to existing EMR ETL. As an improvement, we can delegate Data Quality to Airflow, considering that this component can report/trace/log better the results.
 
 Regarding the last requirement (+100 people) with simultaneous access, I would plan Redshift Database. Once Spark ETL is completed, Airflow can stage a consolidated information (from parquet processed files in Spark) and load Dim + Fact tables in Redshift.
+
+![Enhanced Architecture Based on Airflow](/images/img_airflow_scenario.png)
 
 ---
 
