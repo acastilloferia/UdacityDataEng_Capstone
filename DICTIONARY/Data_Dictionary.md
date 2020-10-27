@@ -13,7 +13,40 @@
 ### Immigration Dictionary
 |Field|Description|
 |---|---|
-|ident|Unique Identifier|
+|cicid|Unique Identifier|
+|i94yr||
+|i94mon||
+|i94cit||
+|i94res||
+|i94port||
+|arrdate||
+|i94mode||
+|i194addr||
+|depdate||
+|i94bir||
+|i94visa||
+|dtadfile||
+|visapost||
+|entdepa||
+|entdepb||
+|entdepu||
+|matflag||
+|biryear||
+|dtaddto||
+|gender||
+|insnum||
+|airline||
+|admnum||
+|fltno||
+|visatype||
+|descI94cit||
+|descI94res||
+|newI94port||
+|descI94mode||
+|descI94addr||
+|stdArrdate||
+|stdDepdate||
+
 
 ### Airports Dictionary
 |Field|Description|
