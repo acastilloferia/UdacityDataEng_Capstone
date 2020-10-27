@@ -1,15 +1,18 @@
 # UdacityDataEng_Capstone
 
 <p>This project has been built based on the provided dataset from Udacity. This dataset is focused in a SAS Format Immigration records from 2016 issued monthly. Some other datasets (csv format) are also provided:</p>
+
 - Airports
 -	Cities
 -	Temperatures
 <p>After first Data assessment, I have browsed (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) for an alternate temperature’s dataset, as far as the provided one has only record up to 2013. In order to assess and manage the data from the dataset I have used Pandas for small ones (Airports and Cities) and PySpark for the big ones (Immigrations and Temperatures).</p>
 <p>In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.</p>
 <p>As a part of the assessment I have run two data quality steps:</p>
+
 -	Top 10 Immigration registration Airports not linked
 -	Top 10 Temperatures not linked with registered cities
 <p>A first Data Model approach aimed to build an Star based desing as follows:</p>
+
 -	Immigration Records (Fact Table)
 -	Airports (Dim Table)
 -	Cities (Dim Table)
@@ -19,6 +22,7 @@
 <p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, **StateCode** will be used also to partition large parquet files.</p>
 <p>With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).</p>
 <p>At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:<p>
+
 -	Direct translation from Python ETL to DAG jobs.
 -	Ability to work with huge volumes of raw information.
 -	Ability to define a “lazy” (not fully normalized) star data model that allow users to quickly work with an analytical model.
@@ -29,6 +33,7 @@
 ---
 
 <p>There will be major change upon analysing the new scenario:</p>
+
 -	The data was increased by 100x.
 -	The pipelines would be run daily by 7 am every day.
 -	The database needed to be accessed by 100+ people.
