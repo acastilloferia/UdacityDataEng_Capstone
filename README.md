@@ -70,6 +70,9 @@ File Name | Description | Go to File
 [us-cities-demographics.csv](/README.md#US-cities-demographics-file) | Complete informations regarding US Cities and its population | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/us-cities-demographics.csv)
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
 [city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
+Derived from Immigration | Dataset generated in Parquet with dates from Immigration Dataset for Analitical usage | Don't apply
+Data Quality #1| Pandas dataframe generated to ensure... | Don't apply
+Data Quality #2| Pandas dataframe generated to ensure... | Don't apply
 
 ---
 
