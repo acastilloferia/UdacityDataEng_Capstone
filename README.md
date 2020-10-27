@@ -2,9 +2,9 @@
 
 <p>This project has been built based on the provided dataset from Udacity. This dataset is focused in a SAS Format Immigration records from 2016 issued monthly. Some other datasets (csv format) are also provided:</p>
 
-- Airports
--	Cities
--	Temperatures
+>>- Airports
+>>-	Cities
+>>-	Temperatures
 <p>After first Data assessment, I have browsed (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) for an alternate temperature’s dataset, as far as the provided one has only record up to 2013. In order to assess and manage the data from the dataset I have used Pandas for small ones (Airports and Cities) and PySpark for the big ones (Immigrations and Temperatures).</p>
 <p>In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.</p>
 <p>As a part of the assessment I have run two data quality steps:</p>
