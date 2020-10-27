@@ -46,6 +46,7 @@
 ---
 
 <p>The project has two deliveries:</p>
+
 -	Data_Wrangling_Notebook.
 -	ETL Pyhon Script (derived from Notebook).
 
