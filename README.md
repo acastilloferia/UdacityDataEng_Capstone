@@ -72,6 +72,8 @@ File Name | Description | Go to File
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
 [city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
 
+---
+
 ### Immigration Data
 This is the main dataset provided for this project. There is a sample file *immigration_data_sample.csv* and a complete
 set (year 2016) in SAS format in the workspace path *../../*.
@@ -109,6 +111,9 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Schema Immigration](/images/img_immi_end_cols.png)
 
 [Field details for Immigration described in Dictionary](/DICTIONARY/Data_Dictionary.md#immigration-dictionary)
+
+---
+
 ### City temperatures
 Dataset provided by Udacity handled data up to 2013. Considering that immigration Dataset is focused on 2016, I have browsed for an alternative third party dataset with similar information updated, at least, till 2016. Followin url gives access to this dataset, also available in ZIP format in INPUT_DATA folder (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
@@ -135,6 +140,8 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Schema Temperatures](/images/img_temp_end_cols.png)
 
 [Field details for Temperatures described in Dictionary](/DICTIONARY/Data_Dictionary.md#temperatures-dictionary)
+
+---
 
 ### I94_SAS_Labels_Descriptions.SAS and SAS_Valid_Values.py
 This file has been used to properly understand the contents of Immigration file. It is written in RAW text 
@@ -167,6 +174,8 @@ i94cntyl = {582:'MEXICO Air Sea, and Not Reported (I-94, no land arrivals)',
    102:'ANDORRA',
 ```
 
+---
+
 ### Airport Codes File
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
 * Split coordinates field into latitude & longitude (following standard notation).
@@ -192,6 +201,8 @@ Following steps exposes data wrangling applied to this dataset:
 ![Final Schema Airports](/images/img_air_end_cols.png)
 
 [Field details for Airports described in Dictionary](/DICTIONARY/Data_Dictionary.md#airports-dictionary)
+
+---
 
 ### US Cities Demographics File
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
