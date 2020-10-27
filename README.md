@@ -1,6 +1,6 @@
 # UdacityDataEng_Capstone
 
-<p>This project has been built based on the provided dataset from Udacity. This dataset is focused in a **SAS Format Immigration records from 2016 issued monthly**. Some other datasets (csv format) are also provided:</p>
+<p>This project has been built based on the provided dataset from Udacity. This dataset is focused in a <b>SAS Format Immigration records from 2016 issued monthly</b>. Some other datasets (csv format) are also provided:</p>
 
 >>- Airports
 >>-	Cities
