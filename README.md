@@ -9,8 +9,8 @@
 <p>In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.</p>
 <p>As a part of the assessment I have run two data quality steps:</p>
 
->>-	Top Immigration registration Airports not linked with Airports
->>-	Top Temperatures not linked with registered cities
+>>-	Immigration registration Airports not linked with Airports
+>>-	Temperatures not linked with registered cities
 <p>A first Data Model approach aimed to build an Star based desing as follows:</p>
 
 >>-	Immigration Records (Fact Table)
