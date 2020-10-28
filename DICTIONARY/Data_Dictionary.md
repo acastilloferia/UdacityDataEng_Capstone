@@ -7,7 +7,7 @@
 |[Immigration Dictionary](Data_Dictionary.md#immigration-dictionary)|List of fields stored in parquet file with Immigration information|
 |[Auxiliar Dates](Data_Dictionary.md#auxiliar-dates-dictionary)|List of fields extracted from distinct dates (arrival +`departure) from Immigratrion table|
 |[Airports Dictionary](Data_Dictionary.md#airports-dictionary)|List of fields stored in parquet file with Airports information|
-|[Cities Dictionary](Data_Dictionary.md#cities-dictionary|List of fields stored in parquet file with cities information|
+|[Cities Dictionary](Data_Dictionary.md#cities-dictionary)|List of fields stored in parquet file with cities information|
 |[Population Dictionary](Data_Dictionary.md#population-dictionary)|List of fields stored in parquet file with population linked cities information|
 |[Temperatures Dictionary](Data_Dictionary.md#temperatures-dictionary)|List of fields stored in parquet file with temperatures linked cities information|
 
