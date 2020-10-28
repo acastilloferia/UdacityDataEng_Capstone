@@ -2,9 +2,10 @@
 
 ## Table of Contents
 
-|aaaaa|bbbbb|
+|DataSet|Description|
 |---|---|
 |Immigration Dictionary|List of fields stored in parquet file with Immigration information|
+|Auxiliar Dates|List of fields extracted from distinct dates (arrival +`departure) from Immigratrion table|
 |Airports Dictionary|List of fields stored in parquet file with Airports information|
 |Cities Dictionary|List of fields stored in parquet file with cities information|
 |Population Dictionary|List of fields stored in parquet file with population linked cities information|
