@@ -76,8 +76,8 @@ File Name | Description | Go to File
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
 [city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
 [Derived from Immigration](/README.md#auxiliar-dates-dataset)  | Dataset generated in Parquet with dates from Immigration Dataset for Analitical usage | N/A
-Data Quality #1| Pandas dataframe generated to ensure... | N/A
-Data Quality #2| Pandas dataframe generated to ensure... | N/A
+[Data Quality #1](/README.md#data-quality-1)| Pandas dataframe generated to check integrity between immigration records and airports | N/A
+[Data Quality #2](/README.md#data-quality-2)| Pandas dataframe generated to check integrity between temperatures and cites | N/A
 
 ---
 
@@ -266,6 +266,32 @@ Following steps exposes data wrangling applied to this dataset:
 [Field details for Cities described in Dictionary](/DICTIONARY/Data_Dictionary.md#cities-dictionary)
 
 [Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
+
+### Data Quality 1
+This is Data Quality asses Cities and Temperatures parquet informmation via SparkSQL. It looks for reported temperatures from cities not in cities tables and store results into a Pandas Dataframe.
+This is the implemented code
+```
+# Check integrity of Immigrations Reports vs Airports
+
+# Load existing Immigration Records from Parquet
+immigration_check_table=spark.read.parquet(output_data+"immigrations/immigrations.parquet")
+immigration_check_table.createGlobalTempView("immigration_check")
+
+# Load existing Airports into a tempView
+airports_check_table=spark.read.parquet(output_data+"airports/airports.parquet")
+airports_check_table.createGlobalTempView("airports_check")
+
+# Discover Immigrations records from Airports not in Airports table
+dataQuality1=spark.sql("SELECT distinct (i94port) FROM global_temp.immigration_check where i94port not in (select distinct (iata_code) from global_temp.airports_check) AND i94addr <> '99' AND descrI94mode='Air'").toPandas()
+```
+
+Following steps expose generated dataframe:
+* Final review ``` dataQuality1.info() ```
+
+![Final Info_DataQuality1](/images/img_dq1_end.png)
+* Final information schema ``` dataQuality1.head() ```
+
+![final Schema DataQuality1](/images/img_dq1_end_cols.png)
 
 ### Data Quality 2
 This is Data Quality asses Cities and Temperatures parquet informmation via SparkSQL. It looks for reported temperatures from cities not in cities tables and store results into a Pandas Dataframe.
