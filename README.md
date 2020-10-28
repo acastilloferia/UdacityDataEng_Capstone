@@ -21,9 +21,11 @@
 >>-	Dates (Dim Table derived from dates used by Immigration Records)
 <p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, <b>StateCode</b> will be used also to partition large parquet files.</p>
 <p>With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).</p>
-<p>At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:<p>
 
 ![Star Data Model](/images/img_star_datamodel.png)
+
+<p>At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:<p>
+
 
 >>-	Direct translation from Python ETL to DAG jobs.
 >>-	Ability to work with huge volumes of raw information.
