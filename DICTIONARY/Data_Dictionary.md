@@ -4,7 +4,7 @@
 
 |DataSet|Description|
 |---|---|
-|Immigration Dictionary|List of fields stored in parquet file with Immigration information|
+|[Immigration Dictionary](Data_Dictionary.md#immigration-dictionary)|List of fields stored in parquet file with Immigration information|
 |Auxiliar Dates|List of fields extracted from distinct dates (arrival +`departure) from Immigratrion table|
 |Airports Dictionary|List of fields stored in parquet file with Airports information|
 |Cities Dictionary|List of fields stored in parquet file with cities information|
