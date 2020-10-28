@@ -18,7 +18,7 @@
 |i94mon|integer representing month|
 |i94ict|integer coded in SAS dictionary i94cntyl representing departing country|
 |i94res|integer coded in SAS dictionary i94cntyl representing nationality|
-|i94port|integer coded in SAS dictionary xxxxx representing|
+|i94port|integer coded in SAS dictionary representing Airport|
 |arrdate|integer representing date (SAS format starts in Jan1st1960)|
 |i94mode|There are missing values as well as not reported (9) i94model={1:'Air',   2:'Sea',   3:'Land',   9:'Not reported'}|
 |i94addr|State code matching SAS List i94addr. Unmatches codes should go into 'other' |
