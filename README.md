@@ -130,10 +130,10 @@ This dataset is calculated from Arrival Date and Departure Date columns from all
 Following steps detail final information schema:
 * Final review ``` dateevents_table.describe().show() ```
 
-![Initial Info_Immigration](/images/img_date_end.png)
+![Final Info_Immigration](/images/img_date_end.png)
 * Final information schema ``` dateevents_table.show(5) ```
 
-![Initial Schema Immigration](/images/img_date_end_cols.png)
+![Final Schema Immigration](/images/img_data_end_cols.png)
 
 
 [Field details for Auxiliar Dates described in Dictionary](/DICTIONARY/Data_Dictionary.md#auxiliar-dates-dictionary)
