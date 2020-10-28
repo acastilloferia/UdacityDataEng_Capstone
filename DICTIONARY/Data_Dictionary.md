@@ -48,6 +48,15 @@
 |stdArrdate|Arrival Date ISO formated based on SAS integer representation for dates|
 |stdDepdate|Departure Date ISO formated based on SAS integer representation for dates|
 
+### Auxiliar Dates Dictionary
+|Field|Description|
+|---|---|
+|dateEvent|Standard format date from Immigration records|
+|day|Extracted day from dateEvent|
+|week|Extracted week from dateEvent|
+|month|Extracted month from dateEvent|
+|year|Extracted year from dateEvent|
+|weekday|Extracted weekday from dateEvent|
 
 ### Airports Dictionary
 |Field|Description|
