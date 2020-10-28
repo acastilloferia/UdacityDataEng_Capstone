@@ -9,8 +9,8 @@
 <p>In addition, a SAS Dictionary with valid values is also provided. Using a macro-based editor, I have converted this file into a Python importable file to assist in the other datasets processing.</p>
 <p>As a part of the assessment I have run two data quality steps:</p>
 
->>-	Top 10 Immigration registration Airports not linked
->>-	Top 10 Temperatures not linked with registered cities
+>>-	Top Immigration registration Airports not linked with Airports
+>>-	Top Temperatures not linked with registered cities
 <p>A first Data Model approach aimed to build an Star based desing as follows:</p>
 
 >>-	Immigration Records (Fact Table)
@@ -19,9 +19,11 @@
 >>-	Population (Dim Table derived from cities dataset)
 >>-	Temperatures (Fact Table)
 >>-	Dates (Dim Table derived from dates used by Immigration Records)
-<p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, **StateCode** will be used also to partition large parquet files.</p>
+<p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, <b>StateCode</b> will be used also to partition large parquet files.</p>
 <p>With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).</p>
 <p>At this stage I think that final analytical usage (100% defined) cannot be properly define so my technological design will be based on Spark+EMR. Advantages of this decision:<p>
+
+![Star Data Model](/images/img_star_datamodel.png)
 
 >>-	Direct translation from Python ETL to DAG jobs.
 >>-	Ability to work with huge volumes of raw information.
