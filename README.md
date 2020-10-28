@@ -17,7 +17,7 @@
 >>-	Airports (Dim Table)
 >>-	Cities (Dim Table)
 >>-	Population (Dim Table derived from cities dataset)
->>-	Temperatures (Dim Table)
+>>-	Temperatures (Fact Table)
 >>-	Dates (Dim Table derived from dates used by Immigration Records)
 <p>A correct relationship between Immigration <> Airports + Airports <>Cities + Cities<>Temperatures is required to grant this model. Based on the gaps detected by quality check I have decided to use a different link between tables: StateCode. This field is available in all datasets (including SAS Dictionary). In addition, **StateCode** will be used also to partition large parquet files.</p>
 <p>With this premises, the purpose of the final data model will be to provide analytic tables of Immigration records with information grouped by States. That will also ease the option to incorporate more datasets from external sources to enrich the analytic (always detailed, up to state level).</p>
