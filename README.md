@@ -130,10 +130,10 @@ This dataset is calculated from Arrival Date and Departure Date columns from all
 Following steps detail final information schema:
 * Final review ``` dateevents_table.describe().show() ```
 
-![Final Info_Immigration](/images/img_date_end.png)
+![Final Info_Dates](/images/img_date_end.png)
 * Final information schema ``` dateevents_table.show(5) ```
 
-![Final Schema Immigration](/images/img_data_end_cols.png)
+![Final Schema Dates](/images/img_data_end_cols.png)
 
 
 [Field details for Auxiliar Dates described in Dictionary](/DICTIONARY/Data_Dictionary.md#auxiliar-dates-dictionary)
@@ -266,3 +266,29 @@ Following steps exposes data wrangling applied to this dataset:
 [Field details for Cities described in Dictionary](/DICTIONARY/Data_Dictionary.md#cities-dictionary)
 
 [Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
+
+### Data Quality 2
+This is Data Quality asses Cities and Temperatures parquet informmation via SparkSQL. It looks for reported temperatures from cities not in cities tables and store results into a Pandas Dataframe.
+This is the implemented code
+```
+# Check integrity of Immigrations Reports vs Airports
+
+# Load existing Temperatures Records from Parquet
+temperatures_check_table=spark.read.parquet(output_data+"temperatures/temperatures.parquet")
+temperatures_check_table.createGlobalTempView("temperature_check")
+
+# Load existing Cities Records into a tempView
+cities_check_table=spark.read.parquet(output_data+"cities/cities.parquet")
+cities_check_table.createGlobalTempView("cities_check")
+
+# Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
+dataQuality2=spark.sql("SELECT distinct (cityCode) FROM global_temp.temperature_check where cityCode not in (SELECT distinct (city_code) FROM global_temp.cities_check)").toPandas()
+```
+
+Following steps expose generated dataframe:
+* Final review ``` dataQuality2.info() ```
+
+![Final Info_DataQuality2](/images/img_dq2_end.png)
+* Final information schema ``` dataQuality2.head() ```
+
+![final Schema DataQuality2](/images/img_dq2_end_cols.png)
