@@ -121,6 +121,26 @@ Following steps exposes data wrangling applied to this dataset:
 
 ---
 
+### Auxiliar Dates Dataset
+This dataset is calculated from Arrival Date and Departure Date columns from all immigrations Data records. Every time a new immigration file in processed, all new date records are added and calculated to this dataset for analytics goals. Calculations done over dates are:
+* Extract from date: Day, Month, Year and WeekDay
+* Read from parquet, previous dataset vía pySpark.
+* Add new row to a combined dataframe.
+* Save to parquet (overwrite mode) to outdata_path+"dateevents/dateevents.parquet".
+Following steps detail final information schema:
+* Final review ``` dateevents_table.describe().show() ```
+
+![Initial Info_Immigration](/images/img_date_end.png)
+* Final information schema ``` dateevents_table.show(5) ```
+
+![Initial Schema Immigration](/images/img_date_end_cols.png)
+
+
+[Field details for Auxiliar Dates described in Dictionary](/DICTIONARY/Data_Dictionary.md#auxiliar-dates-dictionary)
+
+
+---
+
 ### City temperatures
 Dataset provided by Udacity handled data up to 2013. Considering that immigration Dataset is focused on 2016, I have browsed for an alternative third party dataset with similar information updated, at least, till 2016. Followin url gives access to this dataset, also available in ZIP format in INPUT_DATA folder (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)
 I have inspected this file using Pandas Dataframe. I have perfomed the following steps:
