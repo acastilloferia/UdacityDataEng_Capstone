@@ -13,39 +13,40 @@
 ### Immigration Dictionary
 |Field|Description|
 |---|---|
-|cicid|Unique Identifier|
-|i94yr||
-|i94mon||
-|i94cit||
-|i94res||
-|i94port||
-|arrdate||
-|i94mode||
-|i194addr||
-|depdate||
-|i94bir||
-|i94visa||
-|dtadfile||
-|visapost||
-|entdepa||
-|entdepb||
-|entdepu||
-|matflag||
-|biryear||
-|dtaddto||
-|gender||
-|insnum||
-|airline||
-|admnum||
-|fltno||
-|visatype||
-|descI94cit||
-|descI94res||
-|newI94port||
-|descI94mode||
-|descI94addr||
-|stdArrdate||
-|stdDepdate||
+|cicid|unique integer identifier for the record|
+|i94yr|integer representing year|
+|i94mon|integer representing month|
+|i94ict|integer coded in SAS dictionary i94cntyl representing departing country|
+|i94res|integer coded in SAS dictionary i94cntyl representing nationality|
+|i94port|integer coded in SAS dictionary xxxxx representing|
+|arrdate|integer representing date (SAS format starts in Jan1st1960)|
+|i94mode|There are missing values as well as not reported (9) i94model={1:'Air',   2:'Sea',   3:'Land',   9:'Not reported'}|
+|i94addr|State code matching SAS List i94addr. Unmatches codes should go into 'other' |
+|depdate|integer representing date (SAS format starts in Jan1st1960)|
+|i94bir|Integer representing Birth year of passenger|
+|i94visa|Integer Visa codes collapsed into three categories{1 = Business, 2 = Pleasure, 3 = Student}|
+|count|Integer field used for analytics|
+|dtadfile|Character Date Field - Date added to I-94 Files|
+|visapost|Department of State where where Visa was issued|
+|occup|Occupation that will be performed in U.S.|
+|entdepa|Arrival Flag - admitted or paroled into the U.S.|
+|entdepd|Departure Flag - Departed, lost I-94 or is deceased|
+|entdepu|Update Flag - Either apprehended, overstayed, adjusted to perm residence|
+|matflag|Match flag - Match of arrival and departure records|
+|biryear|4 digit year of birth|
+|dtaddto|Character Date Field - Date to which admitted to U.S. (allowed to stay until)|
+|gender|Non-immigrant sex|
+|insnum|INS number|
+|airline|Airline used to arrive in U.S.|
+|adnum|Admission Number|
+|fltno|Flight number of Airline used to arrive in U.S.|
+|visatype|Class of admission legally admitting the non-immigrant to temporarily stay in U.S.|
+|descI94ict|Matching description (lookup SAS dictionary) for departing country|
+|descI94res|Matching description (lookup SAS dictionary) for nationality|
+|newI94port|Matching description (lookup SAS dictionary) for representing port|
+|descI94mode|Matching description (lookup SAS dictionary) for travel media|
+|stdArrdate|Arrival Date ISO formated based on SAS integer representation for dates|
+|stdDepdate|Departure Date ISO formated based on SAS integer representation for dates|
 
 
 ### Airports Dictionary
