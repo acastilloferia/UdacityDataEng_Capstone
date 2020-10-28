@@ -41,7 +41,7 @@
 <p>In order to face daily processing, a new component should be considered: Airflow. That can trigger the existing process with the required setting. We can hook Airflow to existing EMR ETL. As an improvement, we can delegate Data Quality to Airflow, considering that this component can report/trace/log better the results.</p>
 <p>Regarding the last requirement (+100 people) with simultaneous access, I would plan Redshift Database. Once Spark ETL is completed, Airflow can stage a consolidated information (from parquet processed files in Spark) and load Dim + Fact tables in Redshift.</p>
 
-![Enhanced Architecture Based on Airflow](/images/img_airflow_scenario.png)
+![Enhanced Architecture Based on Airflow](/images/img_spark_scenariov2.png)
 
 ---
 
@@ -75,9 +75,9 @@ File Name | Description | Go to File
 [us-cities-demographics.csv](/README.md#US-cities-demographics-file) | Complete informations regarding US Cities and its population | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/us-cities-demographics.csv)
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
 [city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
-Derived from Immigration | Dataset generated in Parquet with dates from Immigration Dataset for Analitical usage | Don't apply
-Data Quality #1| Pandas dataframe generated to ensure... | Don't apply
-Data Quality #2| Pandas dataframe generated to ensure... | Don't apply
+Derived from Immigration | Dataset generated in Parquet with dates from Immigration Dataset for Analitical usage | N/A
+Data Quality #1| Pandas dataframe generated to ensure... | N/A
+Data Quality #2| Pandas dataframe generated to ensure... | N/A
 
 ---
 
