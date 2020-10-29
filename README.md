@@ -337,5 +337,5 @@ This is a sample of one valid execution of the ETL:
 
 After this execution, the output resource contents should be:
 
-![Output resource](/images/img_output_resource.png)
+![Output resource](/images/img_output_contents.png)
     
