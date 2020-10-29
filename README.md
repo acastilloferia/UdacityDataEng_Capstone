@@ -51,8 +51,8 @@
 
 <p>The project has two deliveries:</p>
 
->>-	Data_Wrangling_Notebook.
->>-	ETL Pyhon Script (derived from Notebook).
+>>-	[**Data_Wrangling_Notebook**] (/README.md#data-wrangling-notebook)
+>>-	[**ETL Pyhon Script (derived from Notebook)**] (/README.md#etl-python-script)
 
 <p>The steps followed in the code are:</p>
 
@@ -316,7 +316,7 @@ Following images expose generated dataframes as CSV:
 ### Data Wrangling Notebook
 This notebook has been used to test individualy all processed and also perform de data assessments. Once all the processes worked under this premises they have been migrated to Python ETL.
 
-This notebook expects **SAS_Valid_Codes.py** file in the same folder to proces Immigration Dataset.
+This notebook expects **SAS_Valid_Values.py** file in the same folder to proces Immigration Dataset.
 
 ### ETL Python Script
 This Python Script has secuentially call all processes tested in the notebooK:
@@ -329,7 +329,7 @@ This Python Script has secuentially call all processes tested in the notebooK:
 >>- Immigration Data Process (read, transform and store in parquet). This dataset will generated immigration.parquet file, as well as dateevents.parquet file.
 >>- Data Quality Process (read, transform and store in parquet). This process performs two data quality checks between temperatures and cities.
 
-This notebook expects **SAS_Valid_Codes.py** file in the same folder to proces Immigration Dataset.
+This notebook expects **SAS_Valid_Values.py** file in the same folder to proces Immigration Dataset.
 
 This is a sample of one valid execution of the ETL:
 
