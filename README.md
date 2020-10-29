@@ -313,3 +313,29 @@ Following images expose generated dataframes as CSV:
 
 ![final Result DataQuality2](/images/img_dq2_dataframe.png)
 
+### Data Wrangling Notebook
+This notebook has been used to test individualy all processed and also perform de data assessments. Once all the processes worked under this premises they have been migrated to Python ETL.
+
+This notebook expects **SAS_Valid_Codes.py** file in the same folder to proces Immigration Dataset.
+
+### ETL Python Script
+This Python Script has secuentially call all processes tested in the notebooK:
+
+>>- Spark Session with S3 libraries.
+>>- Define Input / Output resources location. In order to grant access to S3 resources, a complementary configuration file **dl.cfg** with AWS credentials should be provided int the same folder.
+>>- Temperatures Data Process (read, transform and store in parquet)
+>>- Cities Data Process (read, transform and store in parquet). This dataset will generated cities.parquet file, as well as population.parquet file.
+>>- Airports Data Process (read, transform and store in parquet)
+>>- Immigration Data Process (read, transform and store in parquet). This dataset will generated immigration.parquet file, as well as dateevents.parquet file.
+>>- Data Quality Process (read, transform and store in parquet). This process performs two data quality checks between temperatures and cities.
+
+This notebook expects **SAS_Valid_Codes.py** file in the same folder to proces Immigration Dataset.
+
+This is a sample of one valid execution of the ETL:
+
+![ETL.py valid execution](/images/img_etl_execution.png)
+
+After this execution, the output resource contents should be:
+
+![Output resource](/images/img_output_resource.png)
+    
