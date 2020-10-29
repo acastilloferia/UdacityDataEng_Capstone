@@ -271,7 +271,7 @@ Following steps exposes data wrangling applied to this dataset:
 [Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
 
 ### Data Quality
-Under Data Quality process two main checks are performed over the external Data Set Temperatures. Immigration Dataset has used provided SAS Dictionary as a first quality ensurance.
+Under Data Quality process two main checks are performed over the external Data Set Temperatures. Immigration Dataset has used during data wrangling provided SAS Dictionary as a first quality ensurance.
 This is the implemented code
 ```
     # get filepath to output data file
@@ -289,12 +289,14 @@ This is the implemented code
     cities_check_table.createGlobalTempView("cities_check")
 
     # Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
-    dataQuality1=spark.sql("SELECT distinct (state_code) FROM global_temp.cities_check where state_code not in (SELECT distinct (stateCode) FROM global_temp.temperature_check)").toPandas()
+    dataQuality1=spark.sql("SELECT distinct (state_code) FROM global_temp.cities_check \
+                           where state_code not in (SELECT distinct (stateCode) FROM global_temp.temperature_check)").toPandas()
     dataQuality1.to_csv(dq1_data_path)
     print ("Writing DataQuality 1 output to CSV")
     
     # Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
-    dataQuality2=spark.sql("SELECT distinct (cityCode) FROM global_temp.temperature_check where cityCode not in (SELECT distinct (city_code) FROM global_temp.cities_check)").toPandas()
+    dataQuality2=spark.sql("SELECT distinct (cityCode) FROM global_temp.temperature_check \
+                           where cityCode not in (SELECT distinct (city_code) FROM global_temp.cities_check)").toPandas()
     dataQuality2.to_csv(dq2_data_path)
     print ("Writing DataQuality 2 output to CSV") 
     
@@ -303,11 +305,11 @@ This is the implemented code
     print ("Dropped temporary views generated")
 ```
 
-Following steps expose generated dataframe:
-* Final Result_DataQuality1 exported to output folder
+Following images expose generated dataframes as CSV:
+* Final Result_DataQuality1 exported to output folder (States w/o Temperature records in the Dataset)
 
 ![Final Result_DataQuality1](/images/img_dq1_dataframe.png)
-* Final Result_DataQuality2 exported to output folder
+* Final Result_DataQuality2 exported to output folder (Temperatures records w/o Cities in the Dataset)
 
 ![final Result DataQuality2](/images/img_dq2_dataframe.png)
 
