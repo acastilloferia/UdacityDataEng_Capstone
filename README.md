@@ -51,8 +51,8 @@
 
 <p>The project has two deliveries:</p>
 
->>-	[**Data_Wrangling_Notebook**] (/README.md#data-wrangling-notebook)
->>-	[**ETL Pyhon Script (derived from Notebook)**] (/README.md#etl-python-script)
+>>-	[Data_Wrangling_Notebook](/README.md#data-wrangling-notebook)
+>>-	[ETL Pyhon Script (derived from Notebook)](/README.md#etl-python-script)
 
 <p>The steps followed in the code are:</p>
 
