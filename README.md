@@ -80,8 +80,7 @@ File Name | Description | Go to File
 [SAS_Valid_Values.py](/README.md#i94_sas_labels_descriptionssas-and-sas_valid_valuespy) | PYTHON format dictionary created from SAS information (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/SAS_Valid_Values.py)
 [city_temperature.zip](/README.md#city-temperatures) | Dataset in CSV with Temperatures by city imported from external source (added) | [Dataset available](https://github.com/acastilloferia/UdacityDataEng_Capstone/blob/main/INPUT_DATA/city_temperature.zip)
 [Derived from Immigration](/README.md#auxiliar-dates-dataset)  | Dataset generated in Parquet with dates from Immigration Dataset for Analitical usage | N/A
-[Data Quality #1](/README.md#data-quality-1)| Pandas dataframe generated to check integrity between immigration records and airports | N/A
-[Data Quality #2](/README.md#data-quality-2)| Pandas dataframe generated to check integrity between temperatures and cites | N/A
+[Data Quality](/README.md#data-quality)| Pandas dataframe generated to check (x2) integrity between temperatures and cites | N/A
 
 ---
 
@@ -271,54 +270,44 @@ Following steps exposes data wrangling applied to this dataset:
 
 [Field details for Population described in Dictionary](/DICTIONARY/Data_Dictionary.md#population-dictionary)
 
-### Data Quality 1
-This is Data Quality asses Cities and Temperatures parquet informmation via SparkSQL. It looks for reported temperatures from cities not in cities tables and store results into a Pandas Dataframe.
+### Data Quality
+Under Data Quality process two main checks are performed over the external Data Set Temperatures. Immigration Dataset has used provided SAS Dictionary as a first quality ensurance.
 This is the implemented code
 ```
-# Check integrity of Immigrations Reports vs Airports
+    # get filepath to output data file
+    dq1_data_path = output_data+"dataquality1.csv"
+    dq2_data_path = output_data+"dataquality2.csv"
+    print ("Getting Path to DataQuality output file ...")
+    
+    # Check integrity of Temperatures vs Cities
+    # Load existing Temperatures Records from Parquet
+    temperatures_check_table=spark.read.parquet(output_data+"temperatures/temperatures.parquet")
+    temperatures_check_table.createGlobalTempView("temperature_check")
 
-# Load existing Immigration Records from Parquet
-immigration_check_table=spark.read.parquet(output_data+"immigrations/immigrations.parquet")
-immigration_check_table.createGlobalTempView("immigration_check")
+    # Load existing Cities Records into a tempView
+    cities_check_table=spark.read.parquet(output_data+"cities/cities.parquet")
+    cities_check_table.createGlobalTempView("cities_check")
 
-# Load existing Airports into a tempView
-airports_check_table=spark.read.parquet(output_data+"airports/airports.parquet")
-airports_check_table.createGlobalTempView("airports_check")
-
-# Discover Immigrations records from Airports not in Airports table
-dataQuality1=spark.sql("SELECT distinct (i94port) FROM global_temp.immigration_check where i94port not in (select distinct (iata_code) from global_temp.airports_check) AND i94addr <> '99' AND descrI94mode='Air'").toPandas()
+    # Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
+    dataQuality1=spark.sql("SELECT distinct (state_code) FROM global_temp.cities_check where state_code not in (SELECT distinct (stateCode) FROM global_temp.temperature_check)").toPandas()
+    dataQuality1.to_csv(dq1_data_path)
+    print ("Writing DataQuality 1 output to CSV")
+    
+    # Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
+    dataQuality2=spark.sql("SELECT distinct (cityCode) FROM global_temp.temperature_check where cityCode not in (SELECT distinct (city_code) FROM global_temp.cities_check)").toPandas()
+    dataQuality2.to_csv(dq2_data_path)
+    print ("Writing DataQuality 2 output to CSV") 
+    
+    spark.catalog.dropGlobalTempView("temperature_check")
+    spark.catalog.dropGlobalTempView("cities_check")
+    print ("Dropped temporary views generated")
 ```
 
 Following steps expose generated dataframe:
-* Final review ``` dataQuality1.info() ```
+* Final Result_DataQuality1 exported to output folder
 
-![Final Info_DataQuality1](/images/img_dq1_end.png)
-* Final information schema ``` dataQuality1.head() ```
+![Final Result_DataQuality1](/images/img_dq1_dataframe.png)
+* Final Result_DataQuality2 exported to output folder
 
-![final Schema DataQuality1](/images/img_dq1_end_cols.png)
+![final Result DataQuality2](/images/img_dq2_dataframe.png)
 
-### Data Quality 2
-This is Data Quality asses Cities and Temperatures parquet informmation via SparkSQL. It looks for reported temperatures from cities not in cities tables and store results into a Pandas Dataframe.
-This is the implemented code
-```
-# Check integrity of Immigrations Reports vs Airports
-
-# Load existing Temperatures Records from Parquet
-temperatures_check_table=spark.read.parquet(output_data+"temperatures/temperatures.parquet")
-temperatures_check_table.createGlobalTempView("temperature_check")
-
-# Load existing Cities Records into a tempView
-cities_check_table=spark.read.parquet(output_data+"cities/cities.parquet")
-cities_check_table.createGlobalTempView("cities_check")
-
-# Return Temperatures reported from cities not in cities tables into a Pandas Dataframe
-dataQuality2=spark.sql("SELECT distinct (cityCode) FROM global_temp.temperature_check where cityCode not in (SELECT distinct (city_code) FROM global_temp.cities_check)").toPandas()
-```
-
-Following steps expose generated dataframe:
-* Final review ``` dataQuality2.info() ```
-
-![Final Info_DataQuality2](/images/img_dq2_end.png)
-* Final information schema ``` dataQuality2.head() ```
-
-![final Schema DataQuality2](/images/img_dq2_end_cols.png)
